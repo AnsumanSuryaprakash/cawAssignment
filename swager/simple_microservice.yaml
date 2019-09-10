@@ -1,0 +1,137 @@
+openapi: 3.0.0
+
+info: 
+  title: Sample APIs
+  description: This is for authentication and private APIs
+  version: '1.0'
+
+servers:
+  - url: http://localhost:9090/v1
+    description: primary url of localhost
+
+paths:
+  /obtain_token:
+    post:
+      summary: Create a jWt token using Username and Password and return the token
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: 
+              type: object
+              properties:
+                username: 
+                  type: string
+                password:
+                  type: string
+              required:
+                - username
+                - password
+
+      responses:
+        '200':
+          description: JWT Token generated successfully and returned
+          content: 
+            text/plain:
+              schema:
+                type: string
+               
+  /json_patch:
+    patch:
+      summary: Accept two json objects and apply JSON Pach on the JSON object
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                token:
+                  type: string
+                json_object:
+                  type: object
+                json_patch_object:
+                  type: string
+                # required:
+                #   - username
+                #   - token
+                #   - json_object
+                #   - json_patch_object
+      responses:
+        '200':
+          description: Retrun a JSON patched Json object
+          content:
+            application/json:
+              schema:
+                properties:
+                  retrun_object:
+                    type: object
+        '401':
+          description: Retruns 401 if the request is not authorised.
+          
+        '420':
+          description : Retruns 420 if any parameter is not passed.
+          
+        '418':
+          description: Retruns 418 if the JSON Patched object is not passed correct.
+          
+        '403':
+          description: Returns 403 if no JWT token is present in the body.
+          
+  /generate_thumbnail:
+    post:
+      summary: Accepts a public url of an image download the image and return a thumbnail of size 50 x 50
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                token:
+                  type: string
+                url:
+                  type: string
+              required:
+                - username
+                - token
+                - url
+      responses:
+        '200':
+          description: Returns an image thumbnail of 50x50 size
+          content:
+            image/*:
+              schema:
+                type: string
+                format: byte
+                    #type: object
+                    # content:
+                    #   image/*:
+                    #   schema:
+                    #     type: string
+                    #     format: byte
+        '401':
+          description: Retruns 401 if the request is not authorised.
+          
+        '420':
+          description : Retruns 420 if any parameter is not passed.
+          
+        '419':
+          description: Retruns 419 if the url is not public.
+          
+        '403':
+          description: Returns 403 if no JWT token is present in the body.
+          
+        '415':
+          description: Returns 415 is the downloaded object is not image. Unsuported media type.
+         
+        
+              
+
+
