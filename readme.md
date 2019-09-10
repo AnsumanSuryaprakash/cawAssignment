@@ -1,6 +1,6 @@
 <h3>Setup of the project</h3> 
 1. Install jwcrypto using pip install jwcrypto
-2. open a python repl session and use the following code
+2. open a python repl session and use the following code<br>
 ''' 
 		from jwcrypto import jwk
 		key = jwk.JWK(generate='oct', size=256)
@@ -8,16 +8,19 @@
 '''
 
 3. Add result to an environment varriable called 'Secret_Key'
-4. Create an virtual environment in python using virtualenv and activate it.
+4. Create an virtual environment in python using virtualenv and activate it.<br>
 5. Install the requirements 
 '''
 		pip install -r requirements.txt
 '''
-6. Start the app by navigating to app folder in the terminal and type 
+6. Start the app by navigating to app folder in the terminal and type <br>
 '''
 		python app.py
 
 '''
+
+<b>You can download the docker image from dockerhub using tag <em>ansuigit/casassignment</em><b>
+
 
 This application has 3 endpoints 1 public endpoint and 2 protected endpoints
 
