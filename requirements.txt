@@ -8,7 +8,7 @@ clickclick==1.2.2
 colorhash==1.0.2
 configparser==4.0.1
 connexion==2.3.0
-cryptography==2.7
+cryptography==3.2
 Flask==1.1.1
 Flask-MonitoringDashboard==2.1.4
 idna==2.8
