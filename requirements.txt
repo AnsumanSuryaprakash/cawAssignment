@@ -14,7 +14,7 @@ Flask-MonitoringDashboard==2.1.4
 idna==2.8
 inflection==0.3.1
 itsdangerous==1.1.0
-Jinja2==2.10.1
+Jinja2==2.11.3
 jsonpatch==1.24
 jsonpointer==2.0
 jsonschema==2.6.0
